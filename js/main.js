@@ -8,3 +8,21 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     }
   });
 });
+const toggleBtn = document.getElementById("themeToggle");
+toggleBtn.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+
+  // Guardar preferencia en localStorage
+  if (document.body.classList.contains("dark")) {
+    localStorage.setItem("theme", "dark");
+  } else {
+    localStorage.setItem("theme", "light");
+  }
+});
+
+// Al cargar, aplicar la preferencia guardada
+window.onload = () => {
+  if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark");
+  }
+};

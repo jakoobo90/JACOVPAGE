@@ -1,9 +1,80 @@
+/* Tema claro por defecto */
 :root {
-  --brand: #2563eb;
+  --brand: #2563eb;      /* azul */
+  --accent: #9333ea;     /* púrpura */
+  --highlight: #dc2626;  /* rojo */
+  --text: #111827;       /* gris oscuro */
+  --bg: #f9fafb;         /* gris muy claro */
+  --navbar: #ffffff;     
+  --footer: #e5e7eb;
 }
-body { background: #000000; }
-.navbar { backdrop-filter: blur(6px); }
-.hero { min-height: 80vh; display:flex; align-items:center; background: radial-gradient(1200px 600px at 85% 10%, rgba(96,165,250,.25), transparent 60%); }
+
+/* Tema oscuro */
+body.dark {
+  --brand: #7dd3fc;      
+  --accent: #a78bfa;     
+  --highlight: #f87171;  
+  --text: #e5e7eb;       
+  --bg: #111827;         
+  --navbar: rgba(17, 24, 39, 0.9); 
+  --footer: #0f172a;
+}
+
+/* Estilos generales usando variables */
+body { 
+  background: var(--bg);
+  color: var(--text);
+}
+
+.navbar { 
+  backdrop-filter: blur(6px);
+  background: var(--navbar);
+}
+.navbar .nav-link {
+  color: var(--text);
+}
+.navbar .nav-link:hover {
+  color: var(--brand);
+}
+
+.hero { 
+  min-height: 80vh; 
+  display:flex; 
+  align-items:center; 
+  background: radial-gradient(
+    1200px 600px at 85% 10%, 
+    rgba(167,139,250,.25), 
+    transparent 60%
+  ); 
+}
 .hero h1 span { color: var(--brand); }
-.avatar { width: 100%; max-width: 420px; border-radius: 50%; box-shadow: 0 20px 50px rgba(37,99,235,.25); border: 8px solid white; }
-footer { background: #0f172a; color: rgb(0, 0, 0); }
+
+.avatar { 
+  width: 100%; 
+  max-width: 420px; 
+  border-radius: 50%; 
+  box-shadow: 0 20px 50px rgba(167,139,250,.3); 
+  border: 8px solid #1f2937;
+}
+
+.btn-primary {
+  background: var(--brand);
+  border-color: var(--brand);
+}
+.btn-primary:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.btn-outline-primary {
+  color: var(--brand);
+  border-color: var(--brand);
+}
+.btn-outline-primary:hover {
+  background: var(--brand);
+  color: #fff;
+}
+
+footer { 
+  background: var(--footer); 
+  color: var(--text);
+}
